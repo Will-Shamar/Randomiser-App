@@ -15,6 +15,8 @@ public class GameRepository {
         Game cardPick = new Game("Pick a Card", R.drawable.ic_launcher_foreground  );
         Game drawStraws = new Game("Draw Straws", R.drawable.ic_launcher_foreground );
 
+        // TODO: 18/02/2025 Add images to drawable folder & reference above 
+
         List<Game> gamesList = new ArrayList<>();
         gamesList.add(diceRoll);
         gamesList.add(coinFlip);
