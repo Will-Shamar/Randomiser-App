@@ -61,15 +61,4 @@
     android:scaleType="centerInside"
     />
 
-
-
-
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
