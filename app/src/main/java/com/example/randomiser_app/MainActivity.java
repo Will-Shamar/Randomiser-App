@@ -47,5 +47,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     @Override
     public void onItemClick(int position) {
 
+
+        // TODO: 20/02/2025 Add logic for launching separate game activities 
     }
 }
