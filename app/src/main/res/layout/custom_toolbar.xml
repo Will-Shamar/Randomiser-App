@@ -23,8 +23,7 @@
             android:id="@+id/maintoolbartitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="COIN FLIPPER"
-            android:hint="COIN FLIPPER"
+
             android:textColor="@color/white"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
