@@ -7,10 +7,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-
 import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.ActivityCoinFlipperBinding;
-import com.example.randomiser_app.databinding.ActivityMainBinding;
 
 public class CoinFlipperActivity extends AppCompatActivity {
 
