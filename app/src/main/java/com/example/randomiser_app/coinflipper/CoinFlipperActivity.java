@@ -17,12 +17,7 @@ public class CoinFlipperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_coin_flipper);
-//        Toolbar myToolbar = findViewById(R.id.my_toolbar);
-//        setSupportActionBar(myToolbar);
-//        getSupportActionBar().setTitle("Coin Flipper");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        // Need to set bindings manually and get the view from that in order to databind
         ActivityCoinFlipperBinding binding = ActivityCoinFlipperBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Toolbar toolbar =  findViewById(R.id.MAINTOOL);
@@ -44,7 +39,7 @@ public class CoinFlipperActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // handle arrow click here
+        // handle back button arrow click here
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to previous activity (if there is any)
         }
