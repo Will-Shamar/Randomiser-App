@@ -1,6 +1,7 @@
 package com.example.randomiser_app.ui.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +46,15 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GamesViewHolde
     @Override
     public void onBindViewHolder(@NonNull GamesViewHolder holder, int position) {
         Game game = gameList.get(position);
+        int theme = game.getTheme();
         holder.gamesButtonLayoutBinding.setGame(game);
+
+        holder.gamesButtonLayoutBinding.gameButton.setBackgroundResource(theme);
 
         holder.itemView.setOnClickListener(view -> {
             if (recyclerViewInterface != null) {
                 recyclerViewInterface.onItemClick(position);
+
             }
         });
     }
