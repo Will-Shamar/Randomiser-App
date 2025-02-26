@@ -55,6 +55,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GamesViewHolde
 
         holder.gamesButtonLayoutBinding.gameButton.setBackgroundResource(theme);
         holder.gamesButtonLayoutBinding.gameName.setTypeface(typeface);
+        holder.gamesButtonLayoutBinding.gameImage.setImageResource(game.getImage());
 
         holder.itemView.setOnClickListener(view -> {
             if (recyclerViewInterface != null) {
