@@ -1,18 +1,20 @@
-package com.example.randomiser_app;
+package com.example.randomiser_app.ui.mainactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.ActivityMainBinding;
 import com.example.randomiser_app.model.Game;
 import com.example.randomiser_app.ui.adapter.GameAdapter;
-import com.example.randomiser_app.ui.mainactivity.MainActivityViewModel;
-import com.example.randomiser_app.ui.mainactivity.RecyclerViewInterface;
+
 import java.util.List;
 
 
@@ -47,7 +49,31 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     @Override
     public void onItemClick(int position) {
 
-
-        // TODO: 20/02/2025 Add logic for launching separate game activities 
+//        Intent intent= null;
+//        switch (gameList.get(position).getName()) {
+//
+//            case "diceRoll":
+//                intent = new Intent(MainActivity.this, DiceRollerActivity.class);
+//                break;
+//            case "coinFlip":
+//                intent = new Intent(MainActivity.this, CoinFlipperActivity.class);
+//                break;
+//            case "cardPick":
+//                intent = new Intent(MainActivity.this, CardPickerActivity.class);
+//                break;
+//            case "drawStraws":
+//                intent = new Intent(MainActivity.this, DrawStrawsActivity.class);
+//                break;
+//
+//            default:
+//                Toast.makeText(this, "Unable to launch game", Toast.LENGTH_SHORT)
+//                        .show();
+//
+//        }
+//
+//        startActivity(intent);
+//
+//
+//        // TODO: 20/02/2025 Add logic for launching separate game activities
     }
 }
