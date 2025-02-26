@@ -1,12 +1,15 @@
 package com.example.randomiser_app.ui.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -47,9 +50,11 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GamesViewHolde
     public void onBindViewHolder(@NonNull GamesViewHolder holder, int position) {
         Game game = gameList.get(position);
         int theme = game.getTheme();
+        Typeface typeface = ResourcesCompat.getFont(context, game.getFontStyle());
         holder.gamesButtonLayoutBinding.setGame(game);
 
         holder.gamesButtonLayoutBinding.gameButton.setBackgroundResource(theme);
+        holder.gamesButtonLayoutBinding.gameName.setTypeface(typeface);
 
         holder.itemView.setOnClickListener(view -> {
             if (recyclerViewInterface != null) {
