@@ -30,7 +30,7 @@ public class DiceRollerActivity extends AppCompatActivity {
         Log.i("DiceRollerActivity", "toolbar: " + toolbar);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setToolbarText();
     }
