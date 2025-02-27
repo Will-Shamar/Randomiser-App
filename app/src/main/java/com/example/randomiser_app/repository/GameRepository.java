@@ -15,7 +15,7 @@ public class GameRepository {
 
         Game diceRoll = new Game("Dice Roll", R.drawable.ic_launcher_foreground, R.drawable.gradient_colour_2, R.font.caveat_variablefont_wght);
         Game coinFlip = new Game("Coin Flip", R.drawable.ic_launcher_foreground, R.drawable.gradient_colour_4, R.font.dancingscript_variablefont_wght);
-        Game cardPick = new Game("Pick a Card", R.drawable.ic_launcher_foreground, R.drawable.gradient_colour_1, R.font.indieflower_regular);
+        Game cardPick = new Game("Pick a Card", R.drawable.deckofcardslogo, R.drawable.gradient_colour_1, R.font.indieflower_regular);
         Game drawStraws = new Game("Draw Straws", R.drawable.ic_launcher_foreground, R.drawable.gradient_colour_3, R.font.moondance_regular);
 
         // TODO: 18/02/2025 Add images to drawable folder & reference above 
