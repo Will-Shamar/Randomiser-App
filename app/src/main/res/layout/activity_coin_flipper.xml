@@ -26,5 +26,65 @@
         app:layout_constraintVertical_bias="0"
         />
 
+    <TextView
+        android:id="@+id/flipresult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="120dp"
+        android:textSize="36sp"
+        />
+
+    <ImageView
+        android:id="@+id/coinimage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/flipresult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="45dp"
+        />
+
+   <Button
+       android:id="@+id/coinflipbutton"
+       android:layout_width="140dp"
+       android:layout_height="60dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/coinimage"
+       android:layout_marginTop="20dp"
+       android:text="Flip!"
+       />
+
+    <Button
+        android:id="@+id/coinskinsbutton"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/coinflipbutton"
+        android:layout_marginStart="10dp"
+        android:text="Skins"
+        />
+
+  <TextView
+
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:text="History: "
+      android:gravity="center"
+      android:textSize="25sp"
+      android:textColor="@color/white"
+      android:layout_marginStart="20dp"
+      android:layout_marginBottom="35dp"
+      />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
