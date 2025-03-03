@@ -70,6 +70,7 @@
 
   <TextView
 
+      android:id="@+id/fliphistory"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +83,18 @@
       android:layout_marginBottom="35dp"
       />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fliphistory"
+        android:layout_marginBottom="35dp"/>
 
+<!--
+    Adjust recyclerview if letters appear incorrectly
+-->
 
 
 
