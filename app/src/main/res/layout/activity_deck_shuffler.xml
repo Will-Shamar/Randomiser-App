@@ -25,6 +25,71 @@
         app:layout_constraintVertical_bias="0"
         />
 
+    <ImageView
+        android:id="@+id/deckImage"
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        />
+    
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/deckSwitch"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+    <Button
+        android:id="@+id/drawCardButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        android:text="Draw Card"
+        />
+
+    <ImageButton
+        android:id="@+id/deckShuffleButton"
+        android:background= "null"
+        android:src="@drawable/ic_shuffler_light"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintVertical_bias="0.75"
+        />
+
+    <Button
+        android:id="@+id/DeckSkinsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="Decks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.97"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
