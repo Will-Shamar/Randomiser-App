@@ -79,7 +79,7 @@
     <Button
         android:id="@+id/DeckSkinsButton"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:text="@string/decks"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
