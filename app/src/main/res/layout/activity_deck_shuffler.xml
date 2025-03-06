@@ -62,7 +62,7 @@
 
     <ImageButton
         android:id="@+id/deckShuffleButton"
-        android:background= "null"
+        android:background= "@null"
         android:src="@drawable/ic_shuffler_light"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
