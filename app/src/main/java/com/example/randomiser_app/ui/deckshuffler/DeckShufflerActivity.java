@@ -38,7 +38,7 @@ public class DeckShufflerActivity extends AppCompatActivity {
 
     private void setToolbarText(){
         TextView toolbarTitle = findViewById(R.id.maintoolbartitle);
-        toolbarTitle.setText(R.string.deck_shuffler_title);
+        toolbarTitle.setText(R.string.deck_shuffler_toolbar_title);
         toolbarTitle.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
     }
 
