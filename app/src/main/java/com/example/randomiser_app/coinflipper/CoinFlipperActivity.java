@@ -5,6 +5,7 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,10 @@ import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.ActivityCoinFlipperBinding;
 
 public class CoinFlipperActivity extends AppCompatActivity {
+    ActivityCoinFlipperBinding binding;
+    private int currentSide = R.drawable.coinlogo;
+    private int coinSide;
+    private ImageView coinImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +26,18 @@ public class CoinFlipperActivity extends AppCompatActivity {
         // Need to set bindings manually and get the view from that in order to databind
         ActivityCoinFlipperBinding binding = ActivityCoinFlipperBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.setClickHandler(new CoinFlipperClickHandler(this));
 
         setUpToolbar();
+        binding.coinimage.setImageResource(R.drawable.coinlogo);
+
     }
 
-    private void setUpToolbar(){
 
+
+
+
+    private void setUpToolbar(){
         Toolbar toolbar =  findViewById(R.id.customtoolbar);
         Log.i("CoinFlipperActivity", "toolbar: " + toolbar);
 
@@ -34,6 +45,7 @@ public class CoinFlipperActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setToolbarText();
+
     }
 
     private void setToolbarText(){
