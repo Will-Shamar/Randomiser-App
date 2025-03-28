@@ -3,6 +3,7 @@ package com.example.randomiser_app.coinflipper;
 import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -30,12 +31,10 @@ public class CoinFlipperActivity extends AppCompatActivity {
 
         setUpToolbar();
         binding.coinimage.setImageResource(R.drawable.coinlogo);
-
+        binding.fliphistorylist.setText("");
+        binding.fliphistorylist.setMovementMethod(new ScrollingMovementMethod());
+        binding.fliphistorylist.setHorizontallyScrolling(true);
     }
-
-
-
-
 
     private void setUpToolbar(){
         Toolbar toolbar =  findViewById(R.id.customtoolbar);
