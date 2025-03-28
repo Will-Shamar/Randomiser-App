@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.randomiser_app.R;
 
@@ -13,13 +14,30 @@ public class CoinFlipperClickHandler extends Handler {
 
     private Context context;
     private int curSide = R.drawable.coinlogo;
+
     public CoinFlipperClickHandler(Context context) {
         this.context = context;
     }
 
     public void onFlipCoinButtonClicked(View view) {
 
-        animateCoin(false);
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        long waitDuration = animateCoin(flipRandomizer());
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setEnabledButtons(true);
+                TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
+                if (curSide == R.drawable.coinlogo) {
+                    historyList.append("H ");
+                    autoScrollTextView();
+                } else {
+                    historyList.append("T ");
+                    autoScrollTextView();
+                }
+            }
+        }, waitDuration + 500);
     }
 
     public long animateCoin(boolean stayTheSame) {
@@ -47,12 +65,35 @@ public class CoinFlipperClickHandler extends Handler {
         animation.setInterpolator(new LinearInterpolator());
 
         coinImage.startAnimation(animation);
+        setEnabledButtons(false);
         return animation.getDuration() * (animation.getRepeatCount() + 1);
     }
 
-    private void setEnabledButtons(boolean isEnabled){
+    private void setEnabledButtons(boolean isEnabled) {
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
-        coinFlipperActivity.binding.coinflipbutton.setEnabled(isEnabled);
+        coinFlipperActivity.findViewById(R.id.coinflipbutton).setEnabled(isEnabled);
     }
 
+    private boolean flipRandomizer() {
+        double randomNumber = Math.round(Math.random());
+        if (randomNumber == 1.0) {
+            return true;
+        }
+        return false;
+    }
+
+    private void autoScrollTextView() {
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
+        historyList.post(() -> {
+            int content = historyList.getLayout().getWidth();
+            int visible = historyList.getWidth();
+            if(content > visible){
+                historyList.scrollTo(content, 0);
+            }
+            else {
+                historyList.scrollTo(0, 0);
+            }
+        });
+    }
 }
