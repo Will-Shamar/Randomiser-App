@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.randomiser_app.R;
@@ -16,28 +17,31 @@ public class CoinFlipperClickHandler extends Handler {
         this.context = context;
     }
 
-    public void onFlipCoinButtonClicked (View view) {
+    public void onFlipCoinButtonClicked(View view) {
 
-     animateCoin(false);
+        animateCoin(false);
     }
 
-    public long animateCoin(boolean stayTheSame){
+    public long animateCoin(boolean stayTheSame) {
         FlipAnimation animation;
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
         ImageView coinImage = coinFlipperActivity.findViewById(R.id.coinimage);
 
 
-        if(curSide == R.drawable.coinlogo){
-            animation = new FlipAnimation(coinImage,R.drawable.coinlogo, R.drawable.coinrearview,0,180,0,0,0,0);
+        if (curSide == R.drawable.coinlogo) {
+            animation = new FlipAnimation(coinImage, R.drawable.coinlogo, R.drawable.coinrearview, 0, 180, 0, 0, 0, 0);
+        } else {
+            animation = new FlipAnimation(coinImage, R.drawable.coinrearview, R.drawable.coinlogo, 0, 180, 0, 0, 0, 0);
         }
-        else{
-            animation = new FlipAnimation(coinImage,R.drawable.coinrearview, R.drawable.coinlogo,0,180,0,0,0,0);
-        }
-        if(stayTheSame){
+        if (stayTheSame) {
             animation.setRepeatCount(5);
-        }
-        else{
+        } else {
             animation.setRepeatCount(6);
+            if (curSide == R.drawable.coinlogo) {
+                curSide = R.drawable.coinrearview;
+            } else {
+                curSide = R.drawable.coinlogo;
+            }
         }
         animation.setDuration(110);
         animation.setInterpolator(new LinearInterpolator());
@@ -46,6 +50,9 @@ public class CoinFlipperClickHandler extends Handler {
         return animation.getDuration() * (animation.getRepeatCount() + 1);
     }
 
-
+    private void setEnabledButtons(boolean isEnabled){
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        coinFlipperActivity.binding.coinflipbutton.setEnabled(isEnabled);
+    }
 
 }
