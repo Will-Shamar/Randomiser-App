@@ -7,6 +7,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class CoinFlipperClickHandler extends Handler {
     public CoinFlipperClickHandler(Context context) {
         this.context = context;
     }
-    private static int curValue;
+    private int curValue;
 
     public void onFlipCoinButtonClicked(View view) {
 
@@ -36,6 +37,7 @@ public class CoinFlipperClickHandler extends Handler {
                 numberOfFlips.setText(String.valueOf(curValue));
                 setEnabledButtons(true);
                 TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
+                HorizontalScrollView scrollView = coinFlipperActivity.findViewById(R.id.horizonalScrollView);
                 if (curSide == R.drawable.coinlogo) {
                     historyList.append("H ");
 //                    autoScrollTextView();
@@ -43,9 +45,14 @@ public class CoinFlipperClickHandler extends Handler {
                     historyList.append("T ");
 //                    autoScrollTextView();
                 }
+                scrollView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+                    }
+                });
             }
         }, waitDuration + 500);
-        autoScrollTextView();
     }
 
     public long animateCoin(boolean stayTheSame) {
