@@ -2,6 +2,8 @@ package com.example.randomiser_app.coinflipper;
 
 import android.content.Context;
 import android.os.Handler;
+import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
@@ -10,34 +12,40 @@ import android.widget.TextView;
 
 import com.example.randomiser_app.R;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class CoinFlipperClickHandler extends Handler {
 
     private Context context;
     private int curSide = R.drawable.coinlogo;
-
     public CoinFlipperClickHandler(Context context) {
         this.context = context;
     }
+    private static int curValue;
 
     public void onFlipCoinButtonClicked(View view) {
 
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        TextView numberOfFlips = coinFlipperActivity.findViewById(R.id.numberOfFlips);
         long waitDuration = animateCoin(flipRandomizer());
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                curValue++;
+                numberOfFlips.setText(String.valueOf(curValue));
                 setEnabledButtons(true);
                 TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
                 if (curSide == R.drawable.coinlogo) {
                     historyList.append("H ");
-                    autoScrollTextView();
+//                    autoScrollTextView();
                 } else {
                     historyList.append("T ");
-                    autoScrollTextView();
+//                    autoScrollTextView();
                 }
             }
         }, waitDuration + 500);
+        autoScrollTextView();
     }
 
     public long animateCoin(boolean stayTheSame) {
@@ -89,7 +97,7 @@ public class CoinFlipperClickHandler extends Handler {
             int content = historyList.getLayout().getWidth();
             int visible = historyList.getWidth();
             if(content > visible){
-                historyList.scrollTo(content, 0);
+                historyList.scrollTo(curValue, 0);
             }
             else {
                 historyList.scrollTo(0, 0);
