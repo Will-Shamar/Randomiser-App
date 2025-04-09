@@ -94,12 +94,17 @@
 
     <Button
         android:id="@+id/coinskinsbutton"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/coinflipbutton"
         android:layout_marginStart="10dp"
         android:text="Skins"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/shadowsintolight_regular"
+        android:background="@drawable/coinskinbuttondefault"
         />
 
   <TextView
