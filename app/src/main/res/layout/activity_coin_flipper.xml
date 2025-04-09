@@ -105,6 +105,7 @@
         android:textSize="16sp"
         android:fontFamily="@font/shadowsintolight_regular"
         android:background="@drawable/coinskinbuttondefault"
+        android:onClick="@{clickHandler::onSkinsButtonClicked}"
         />
 
   <TextView

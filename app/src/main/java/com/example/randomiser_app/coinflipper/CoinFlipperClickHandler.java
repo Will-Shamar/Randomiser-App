@@ -2,20 +2,30 @@ package com.example.randomiser_app.coinflipper;
 
 import android.content.Context;
 import android.os.Handler;
-import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.randomiser_app.R;
+import com.example.randomiser_app.databinding.CoinSkinsMenuBinding;
+import com.example.randomiser_app.model.Coin;
+import com.example.randomiser_app.ui.mainactivity.RecyclerViewInterface;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.List;
 
-public class CoinFlipperClickHandler extends Handler {
+public class CoinFlipperClickHandler extends Handler implements RecyclerViewInterface {
 
     private Context context;
     private int curSide = R.drawable.coinlogo;
@@ -40,10 +50,8 @@ public class CoinFlipperClickHandler extends Handler {
                 HorizontalScrollView scrollView = coinFlipperActivity.findViewById(R.id.horizonalScrollView);
                 if (curSide == R.drawable.coinlogo) {
                     historyList.append("H ");
-//                    autoScrollTextView();
                 } else {
                     historyList.append("T ");
-//                    autoScrollTextView();
                 }
                 scrollView.post(new Runnable() {
                     @Override
@@ -91,10 +99,7 @@ public class CoinFlipperClickHandler extends Handler {
 
     private boolean flipRandomizer() {
         double randomNumber = Math.round(Math.random());
-        if (randomNumber == 1.0) {
-            return true;
-        }
-        return false;
+        return randomNumber == 1.0;
     }
 
     private void autoScrollTextView() {
@@ -110,5 +115,42 @@ public class CoinFlipperClickHandler extends Handler {
                 historyList.scrollTo(0, 0);
             }
         });
+    }
+
+
+
+    public void onSkinsButtonClicked(View view) {
+
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        Button skinsButton = coinFlipperActivity.findViewById(R.id.coinskinsbutton);
+        LayoutInflater inflater = (LayoutInflater)
+        coinFlipperActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.coin_skins_menu, null);
+        boolean focusable = true;
+        final PopupWindow popupWindow = new PopupWindow();
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
+        CoinSkinsMenuBinding binding = DataBindingUtil.setContentView(coinFlipperActivity, R.layout.coin_skins_menu);
+        CoinFlipperViewModel coinFlipperViewModel = new ViewModelProvider(coinFlipperActivity).get(CoinFlipperViewModel.class);
+        List<Coin> coinList = coinFlipperViewModel.fetchAllCoins();
+        skinsButton.setOnClickListener(view1 -> {
+
+            RecyclerView recyclerView = binding.coinSkinsrecycler;
+            recyclerView.setAdapter(new CoinFlipperAdapter(context, coinList, CoinFlipperClickHandler.this));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            popupWindow.setOverlapAnchor(true);
+            popupWindow.setAnimationStyle(-1);
+            popupWindow.setWindowLayoutType(R.layout.coin_skins_menu);
+        });
+    }
+    @Override
+    public void onItemClick(int position) {
     }
 }
