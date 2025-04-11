@@ -2,6 +2,7 @@ package com.example.randomiser_app.coinflipper;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -141,11 +142,23 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         CoinFlipperViewModel coinFlipperViewModel = new ViewModelProvider(coinFlipperActivity).get(CoinFlipperViewModel.class);
         List<Coin> coinList = coinFlipperViewModel.fetchAllCoins();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new CoinFlipperAdapter(context, coinList, CoinFlipperClickHandler.this));
         PagerSnapHelper snaphelper = new PagerSnapHelper();
         snaphelper.attachToRecyclerView(recyclerView);
-        recyclerView.post(() -> recyclerView.smoothScrollToPosition(0));
+        recyclerView.post(() -> {
+           int recyclerViewWidth = recyclerView.getWidth();
+           int itemWidth = (int) TypedValue.applyDimension(
+                   TypedValue.COMPLEX_UNIT_DIP,
+                   250,
+                   recyclerView.getResources().getDisplayMetrics()
+           );
+           int offset = (recyclerViewWidth - itemWidth) / 2;
+
+           layoutManager.scrollToPositionWithOffset(0, offset);
+        });
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, -280);
 
