@@ -10,7 +10,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         >
@@ -19,8 +19,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="100dp"
-            android:paddingEnd="100dp">
+            android:paddingStart="75dp"
+            android:paddingEnd="75dp">
 
     <ImageView
         android:id="@+id/coinSkinImage"
