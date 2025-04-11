@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -16,7 +17,10 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.CoinSkinsMenuBinding;
@@ -95,6 +99,7 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
     private void setEnabledButtons(boolean isEnabled) {
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
         coinFlipperActivity.findViewById(R.id.coinflipbutton).setEnabled(isEnabled);
+        coinFlipperActivity.findViewById(R.id.coinskinsbutton).setEnabled(isEnabled);
     }
 
     private boolean flipRandomizer() {
@@ -122,32 +127,31 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
     public void onSkinsButtonClicked(View view) {
 
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
-        Button skinsButton = coinFlipperActivity.findViewById(R.id.coinskinsbutton);
-        LayoutInflater inflater = (LayoutInflater)
-        coinFlipperActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) coinFlipperActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.coin_skins_menu, null);
-        boolean focusable = true;
-        final PopupWindow popupWindow = new PopupWindow();
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                popupWindow.dismiss();
-                return true;
-            }
-        });
 
-        CoinSkinsMenuBinding binding = DataBindingUtil.setContentView(coinFlipperActivity, R.layout.coin_skins_menu);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                true
+        );
+
+        RecyclerView recyclerView = popupView.findViewById(R.id.coinSkinsrecycler);
         CoinFlipperViewModel coinFlipperViewModel = new ViewModelProvider(coinFlipperActivity).get(CoinFlipperViewModel.class);
         List<Coin> coinList = coinFlipperViewModel.fetchAllCoins();
-        skinsButton.setOnClickListener(view1 -> {
 
-            RecyclerView recyclerView = binding.coinSkinsrecycler;
-            recyclerView.setAdapter(new CoinFlipperAdapter(context, coinList, CoinFlipperClickHandler.this));
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            popupWindow.setOverlapAnchor(true);
-            popupWindow.setAnimationStyle(-1);
-            popupWindow.setWindowLayoutType(R.layout.coin_skins_menu);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setAdapter(new CoinFlipperAdapter(context, coinList, CoinFlipperClickHandler.this));
+        PagerSnapHelper snaphelper = new PagerSnapHelper();
+        snaphelper.attachToRecyclerView(recyclerView);
+        recyclerView.post(() -> recyclerView.smoothScrollToPosition(0));
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, -280);
+
+        popupView.setOnTouchListener((v, event) -> {
+            popupWindow.dismiss();
+            return true;
         });
     }
     @Override
