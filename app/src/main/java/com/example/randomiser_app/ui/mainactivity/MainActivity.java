@@ -2,6 +2,8 @@ package com.example.randomiser_app.ui.mainactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import com.example.randomiser_app.R;
 import com.example.randomiser_app.coinflipper.CoinFlipperActivity;
 import com.example.randomiser_app.databinding.ActivityMainBinding;
 import com.example.randomiser_app.model.Game;
+import com.example.randomiser_app.ui.infobutton.InfoButtonFragment;
 import com.example.randomiser_app.ui.adapter.GameAdapter;
 
 import java.util.List;
@@ -44,9 +47,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         adapter = new GameAdapter(this, gameList, this);
         recyclerView.setAdapter(adapter);
 
-
+        setInfoButton();
     }
 
+    private void setInfoButton(){
+        ImageButton imageButton = findViewById(R.id.toolbar_imagebutton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InfoButtonFragment fragment = InfoButtonFragment.newInstance("HOME");
+                fragment.show(getSupportFragmentManager(), "MAINMENUFRAG");
+            }
+        });
+
+    }
     @Override
     public void onItemClick(int position) {
 
