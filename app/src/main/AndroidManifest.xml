@@ -15,6 +15,9 @@
         <activity
             android:name=".ui.diceroller.DiceRollerActivity"
             android:exported="false" />
+       <activity
+       android:name=".ui.deckshuffler.DeckShufflerActivity"
+                 android:exported="false" />
         <activity
             android:name=".coinflipper.CoinFlipperActivity"
             android:exported="false" />
