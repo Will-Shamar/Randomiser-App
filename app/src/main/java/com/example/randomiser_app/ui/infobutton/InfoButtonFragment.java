@@ -1,4 +1,4 @@
-package com.example.randomiser_app.ui;
+package com.example.randomiser_app.ui.infobutton;
 
 import android.app.Dialog;
 import android.os.Bundle;

@@ -16,7 +16,7 @@ import com.example.randomiser_app.R;
 import com.example.randomiser_app.coinflipper.CoinFlipperActivity;
 import com.example.randomiser_app.databinding.ActivityMainBinding;
 import com.example.randomiser_app.model.Game;
-import com.example.randomiser_app.ui.InfoButtonFragment;
+import com.example.randomiser_app.ui.infobutton.InfoButtonFragment;
 import com.example.randomiser_app.ui.adapter.GameAdapter;
 
 import java.util.List;
