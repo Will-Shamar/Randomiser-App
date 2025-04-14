@@ -53,8 +53,8 @@ public class InfoButtonFragment extends DialogFragment {
        Log.i("INFO BUTTON", page);
         switch(page){
             case"HOME":
-                ((TextView)dialog.findViewById(R.id.infoTitle)).setText("RNJESUS");
-                ((TextView)dialog.findViewById(R.id.infoContent)).setText("Welcome to RNJESUS – Let divine randomness decide! 🎲\n\nWhether you're flipping a coin, rolling dice, drawing straws, or picking a card, trust in the higher power of chance.\n\n• Coin Flip – Heads or tails? Leave it to fate.\n\n•  Roll Dice – From D6 to D20, let your roll be guided by a higher power.\n\n• Draw Straws – Who’s going first? Settle it fair and square with righteous intervention.\n\n• Pick a Card– Need a card? Shuffle the deck and RNJESUS decide.\n\nNo need to argue, overthink, or fight your friends—let RNJESUS take the wheel (and maybe the dice too).\n\n");
+                ((TextView)dialog.findViewById(R.id.infoTitle)).setText(R.string.info_button_main_title);
+                ((TextView)dialog.findViewById(R.id.infoContent)).setText(String.format("%s%s%s%s", getString(R.string.info_button_main_content_p1), getString(R.string.info_button_main_content_p2), getString(R.string.info_button_main_content_p3), getString(R.string.info_button_main_content_p4)));
                 break;
             case"COIN":
                 // TODO: 11/04/2025 add text for 'dice roll' info page

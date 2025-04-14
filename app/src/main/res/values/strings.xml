@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Randomiser_App</string>
     <string name="coin_flippers_toolbar_title">COIN FLIPPERS</string>
+    <string name="info_button_main_title">RNJESUS</string>
+    <string name="info_button_main_content_p1">Welcome to RNJESUS – Let divine randomness decide! 🎲</string>
+    <string name="info_button_main_content_p2">\n\nWhether you\'re flipping a coin, rolling dice, drawing straws, or picking a card, trust in the higher power of chance.</string>
+    <string name="info_button_main_content_p3">\n\n• Coin Flip – Heads or tails? Leave it to fate.\n\n•  Roll Dice – From D6 to D20, let your roll be guided by a higher power.\n\n• Draw Straws – Who’s going first? Settle it fair and square with righteous intervention.\n\n• Pick a Card– Need a card? Shuffle the deck and RNJESUS decide.</string>
+    <string name="info_button_main_content_p4">\n\nNo need to argue, overthink, or fight your friends—let RNJESUS take the wheel (and maybe the dice too).\n\n</string>
 </resources>
