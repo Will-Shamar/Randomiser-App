@@ -58,6 +58,7 @@ public class InfoButtonFragment extends DialogFragment {
                 break;
             case"COIN":
                 ((TextView)dialog.findViewById(R.id.infoTitle)).setText(R.string.info_button_coin_flipper_title);
+                dialog.findViewById(R.id.infoContent).setPadding(10,0,10,0);
                 ((TextView)dialog.findViewById(R.id.infoContent)).setText("\uD83E\uDE99 How to Use the Coin Flipper:\n \n" +
                         "1) Just give the “Flip” button a tap to send it flying.\n" +
                         "\n" +
