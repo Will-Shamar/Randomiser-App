@@ -11,4 +11,13 @@
     <string name="decks">Decks</string>
     <string name="dice_roll_title">Dice Roll</string>
     <string name="info_button_coin_flipper_title">Coin Flipper</string>
+    <string name="info_button_coin_flipper_content_p1">🪙 How to Use the Coin Flipper:\n \n</string>
+    <string name="_1_info_button_coin_flipper_content_p2">1) Just give the “Flip” button a tap to send it flying.\n \n</string>
+    <string name="info_button_coin_flipper_content_p3">2) Watch it Spin - The buttons will be disabled until the coin is done.\n \n</string>
+    <string name="info_button_coin_flipper_content_p4">3) See the Result – The coin will land on either Heads or Tails. That’s your answer!\n \n</string>
+    <string name="info_button_coin_flipper_content_p5">You can flip as many times as you like — just don’t blame us if the coin chooses something you didn’t want 😉 \n</string>
+    <string name="info_button_line_break">──────────────── </string>
+    <string name="info_button_coin_flipper_content_p6">\nNo coin in your pocket? No problem. This digital flipper is perfect for:\n \n </string>
+    <string name="info_button_coin_flipper_content_p7">🔄 Deciding who goes first in board games like Monopoly, Risk, or Catan \n \n🏈 Kicking off a friendly football or soccer match\n \n🎤 Choosing the first speaker in a group presentation or debate\n \n🍔 Picking where to eat when no one wants to choose\n\n🎮 Breaking ties or choosing teams in party or video games\n\n☕ Settling everyday standoffs (like who’s making the coffee run)\n</string>
+
 </resources>
