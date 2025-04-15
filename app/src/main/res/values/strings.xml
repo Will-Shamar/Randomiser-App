@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Randomiser_App</string>
-    <string name="coin_flippers_toolbar_title">COIN FLIPPERS</string>
+    <string name="coin_flippers_toolbar_title">COIN FLIPPER</string>
     <string name="info_button_main_title">RNJESUS</string>
     <string name="info_button_main_content_p1">Welcome to RNJESUS – Let divine randomness decide! 🎲</string>
     <string name="info_button_main_content_p2">\n\nWhether you\'re flipping a coin, rolling dice, drawing straws, or picking a card, trust in the higher power of chance.</string>
