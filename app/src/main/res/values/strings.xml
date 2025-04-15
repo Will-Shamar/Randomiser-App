@@ -10,4 +10,5 @@
     <string name="draw_card">Draw Card</string>
     <string name="decks">Decks</string>
     <string name="dice_roll_title">Dice Roll</string>
+    <string name="info_button_coin_flipper_title">Coin Flipper</string>
 </resources>

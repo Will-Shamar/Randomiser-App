@@ -64,8 +64,8 @@ public class InfoButtonFragment extends DialogFragment {
                         "\n" +
                         "2) Watch it Spin - The buttons will be disabled until the coin is done.\n \n" +
                         "3) See the Result – The coin will land on either Heads or Tails. That’s your answer!\n \n" +
-                        "You can flip as many times as you like — just don’t blame us if the coin chooses something you didn’t want \uD83D\uDE09\n \n" +
-                        "─────────────────\n" +
+                        "You can flip as many times as you like — just don’t blame us if the coin chooses something you didn’t want \uD83D\uDE09\n" +
+                        "────────────────\n" +
                         "No coin in your pocket? No problem. This digital flipper is perfect for:\n" +
                         "\n" +
                         "\uD83D\uDD04 Deciding who goes first in board games like Monopoly, Risk, or Catan\n" +
@@ -79,7 +79,7 @@ public class InfoButtonFragment extends DialogFragment {
                         "\uD83C\uDFAE Breaking ties or choosing teams in party or video games\n" +
                         "\n" +
                         "☕ Settling everyday standoffs (like who’s making the coffee run)\n" +
-                        "\n");
+                                "────────────────");
 
                 break;
             case "DICE":
