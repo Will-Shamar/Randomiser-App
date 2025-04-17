@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.ActivityCoinFlipperBinding;
+import com.example.randomiser_app.ui.infobutton.InfoButtonFragment;
 
 public class CoinFlipperActivity extends AppCompatActivity {
     ActivityCoinFlipperBinding binding;
@@ -30,6 +33,7 @@ public class CoinFlipperActivity extends AppCompatActivity {
         binding.setClickHandler(new CoinFlipperClickHandler(this));
 
         setUpToolbar();
+        setInfoButton();
         binding.coinimage.setImageResource(R.drawable.coinlogo);
         binding.fliphistorylist.setText("");
         binding.fliphistorylist.setMovementMethod(new ScrollingMovementMethod());
@@ -62,5 +66,16 @@ public class CoinFlipperActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void setInfoButton(){
+        ImageButton imageButton = findViewById(R.id.toolbar_imagebutton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InfoButtonFragment fragment = InfoButtonFragment.newInstance("COIN");
+                fragment.show(getSupportFragmentManager(), "COINFLIPFRAG");
+            }
+        });
+
+    }
 
 }
