@@ -39,7 +39,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="120dp"
-        android:textSize="36sp"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        android:fontFamily="@font/bangers_regular"
         />
 
     <ImageView
