@@ -19,5 +19,11 @@
     <string name="info_button_line_break">──────────────── </string>
     <string name="info_button_coin_flipper_content_p6">\nNo coin in your pocket? No problem. This digital flipper is perfect for:\n \n </string>
     <string name="info_button_coin_flipper_content_p7">🔄 Deciding who goes first in board games like Monopoly, Risk, or Catan \n \n🏈 Kicking off a friendly football or soccer match\n \n🎤 Choosing the first speaker in a group presentation or debate\n \n🍔 Picking where to eat when no one wants to choose\n\n🎮 Breaking ties or choosing teams in party or video games\n\n☕ Settling everyday standoffs (like who’s making the coffee run)\n</string>
-
+    <string name="info_button_deck_shuffler_title">PICK A CARD</string>
+    <string name="info_button_deck_shuffler_content_p1">🃏 How to Use the Card Picker:\n \n</string>
+    <string name="info_button_deck_shuffler_content_p2">• Let\'s Get Started – Tap “Draw Card” to reveal one random card from the deck.\n \n</string>
+    <string name="info_button_deck_shuffler_content_p3">• One and Done – The card you draw is removed from the deck.\n \n</string>
+    <string name="info_button_deck_shuffler_content_p4">• Need a Restart? – Tap the reshuffle icon to mix the full deck and go again!\n \n</string>
+    <string name="info_button_deck_shuffler_content_p5">• Why So Serious? – Tap the slider to input jokers in the deck or keep it classic it\'s your call!\n \n</string>
+    <string name="info_button_deck_shuffler_content_p6">No deck of cards nearby? RNJESUS has your back.\n</string>
 </resources>
