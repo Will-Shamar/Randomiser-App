@@ -52,8 +52,10 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
                 HorizontalScrollView scrollView = coinFlipperActivity.findViewById(R.id.horizonalScrollView);
                 if (curSide == R.drawable.coinlogo) {
                     historyList.append("H ");
+                    showTextResult("H");
                 } else {
                     historyList.append("T ");
+                    showTextResult("T");
                 }
                 scrollView.post(new Runnable() {
                     @Override
@@ -69,7 +71,6 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         FlipAnimation animation;
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
         ImageView coinImage = coinFlipperActivity.findViewById(R.id.coinimage);
-
 
         if (curSide == R.drawable.coinlogo) {
             animation = new FlipAnimation(coinImage, R.drawable.coinlogo, R.drawable.coinrearview, 0, 180, 0, 0, 0, 0);
@@ -91,6 +92,8 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
 
         coinImage.startAnimation(animation);
         setEnabledButtons(false);
+        showTextResult("N");
+
         return animation.getDuration() * (animation.getRepeatCount() + 1);
     }
 
@@ -164,6 +167,37 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
             return true;
         });
     }
+
+
+    private void showTextResult(String result){
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+        TextView flipResult = coinFlipperActivity.findViewById(R.id.flipresult);
+        Animation animFadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+        Animation animFadeOut = AnimationUtils.loadAnimation(context, R.anim.fade_out);
+
+
+
+        switch (result){
+            case"H":
+                flipResult.startAnimation(animFadeIn);
+                flipResult.setText("HEADS!!");
+                break;
+            case"T":
+                flipResult.startAnimation(animFadeIn);
+                flipResult.setText("TAILS!!");
+                break;
+            case"N":
+                flipResult.startAnimation(animFadeOut);
+
+
+                break;
+            default:
+                flipResult.setText("NICE!!");
+                Log.d("COIN_FLIPPER","case has gone wrong: " + result);
+        }
+
+    }
+
     @Override
     public void onItemClick(int position) {
     }
