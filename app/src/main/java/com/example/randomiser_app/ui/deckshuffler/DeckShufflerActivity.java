@@ -5,6 +5,8 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.randomiser_app.R;
 import com.example.randomiser_app.databinding.ActivityDeckShufflerBinding;
+import com.example.randomiser_app.ui.infobutton.InfoButtonFragment;
 
 public class DeckShufflerActivity extends AppCompatActivity {
 
@@ -34,6 +37,7 @@ public class DeckShufflerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setToolbarText();
+        setInfoButton();
     }
 
     private void setToolbarText(){
@@ -42,6 +46,17 @@ public class DeckShufflerActivity extends AppCompatActivity {
         toolbarTitle.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
     }
 
+    private void setInfoButton(){
+        ImageButton infoButton = findViewById(R.id.toolbar_imagebutton);
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InfoButtonFragment fragment = InfoButtonFragment.newInstance("CARDS");
+                fragment.show(getSupportFragmentManager(), "DECKSHUFFLERFRAG");
+            }
+        });
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
