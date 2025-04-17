@@ -143,8 +143,8 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new CoinFlipperAdapter(context, coinList, CoinFlipperClickHandler.this));
-        PagerSnapHelper snaphelper = new PagerSnapHelper();
-        snaphelper.attachToRecyclerView(recyclerView);
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
         recyclerView.post(() -> {
            int recyclerViewWidth = recyclerView.getWidth();
            int itemWidth = (int) TypedValue.applyDimension(
