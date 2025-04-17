@@ -10,4 +10,11 @@
     <string name="draw_card">Draw Card</string>
     <string name="decks">Decks</string>
     <string name="dice_roll_title">Dice Roll</string>
+    <string name="info_button_deck_shuffler_title">PICK A CARD</string>
+    <string name="info_button_deck_shuffler_content_p1">🃏 How to Use the Card Picker:\n \n</string>
+    <string name="info_button_deck_shuffler_content_p2">• Let\'s Get Started – Tap “Draw Card” to reveal one random card from the deck.\n \n</string>
+    <string name="info_button_deck_shuffler_content_p3">• One and Done – The card you draw is removed from the deck.\n \n</string>
+    <string name="info_button_deck_shuffler_content_p4">• Need a Restart? – Tap the reshuffle icon to mix the full deck and go again!\n \n</string>
+    <string name="info_button_deck_shuffler_content_p5">• Why So Serious? – Tap the slider to input jokers in the deck or keep it classic it\'s your call!\n \n</string>
+    <string name="info_button_deck_shuffler_content_p6">No deck of cards nearby? RNJESUS has your back.\n</string>
 </resources>
