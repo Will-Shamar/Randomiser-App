@@ -16,6 +16,7 @@ import com.example.randomiser_app.R;
 import com.example.randomiser_app.coinflipper.CoinFlipperActivity;
 import com.example.randomiser_app.databinding.ActivityMainBinding;
 import com.example.randomiser_app.model.Game;
+import com.example.randomiser_app.ui.deckshuffler.DeckShufflerActivity;
 import com.example.randomiser_app.ui.infobutton.InfoButtonFragment;
 import com.example.randomiser_app.ui.adapter.GameAdapter;
 
@@ -73,9 +74,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             case "Coin Flip":
                 intent = new Intent(MainActivity.this, CoinFlipperActivity.class);
                 break;
-//            case "Pick a Card":
-//                intent = new Intent(MainActivity.this, CardPickerActivity.class);
-//                break;
+            case "Pick a Card":
+                intent = new Intent(MainActivity.this, DeckShufflerActivity.class);
+                break;
 //            case "Draw Straws":
 //                intent = new Intent(MainActivity.this, DrawStrawsActivity.class);
 //                break;
