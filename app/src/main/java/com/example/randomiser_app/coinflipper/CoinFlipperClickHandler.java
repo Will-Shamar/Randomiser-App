@@ -2,29 +2,26 @@ package com.example.randomiser_app.coinflipper;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.randomiser_app.R;
-import com.example.randomiser_app.databinding.CoinSkinsMenuBinding;
 import com.example.randomiser_app.model.Coin;
 import com.example.randomiser_app.ui.mainactivity.RecyclerViewInterface;
 
