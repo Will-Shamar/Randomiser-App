@@ -34,6 +34,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.35"
+        android:src="@drawable/sample_card_rear_view"
+        />
+
+    <ImageView
+        android:id="@+id/revealedCard"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        android:visibility="gone"
         />
     
     <androidx.appcompat.widget.SwitchCompat
@@ -45,20 +58,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintVertical_bias="0.644"
+        app:layout_constraintVertical_bias="0.75"
+        android:layout_marginEnd="12dp"
         />
 
     <Button
         android:id="@+id/drawCardButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.85"
-        android:text="@string/draw_card"
-        />
+        android:text="Draw Card"
+        android:textSize="27sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/indieflower_regular"
+        android:background="@drawable/draw_card_button_selector"/>
 
     <ImageButton
         android:id="@+id/deckShuffleButton"
@@ -73,7 +90,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintVertical_bias="0.85"
+        android:layout_marginEnd="12dp"
         />
 
     <Button
@@ -81,12 +99,16 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="@string/decks"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/coveredbyyourgrace_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.97"
         app:layout_constraintHorizontal_bias="0.97"
+        android:background="@drawable/card_decks_button"
         />
 
     <ImageView
