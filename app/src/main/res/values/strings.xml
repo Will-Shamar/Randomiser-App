@@ -10,6 +10,13 @@
     <string name="draw_card">Draw Card</string>
     <string name="decks">Decks</string>
     <string name="dice_roll_title">Dice Roll</string>
+    <string name="heads">HEADS!!</string>
+    <string name="tails">TAILS!!</string>
+    <string name="nice">NICE!!</string>
+    <string name="flip">Flip!</string>
+    <string name="times_flipped">Times Flipped:</string>
+    <string name="skins">Skins</string>
+    <string name="history">"History: "</string>
     <string name="info_button_coin_flipper_title">Coin Flipper</string>
     <string name="info_button_coin_flipper_content_p1">🪙 How to Use the Coin Flipper:\n \n</string>
     <string name="_1_info_button_coin_flipper_content_p2">1) Just give the “Flip” button a tap to send it flying.\n \n</string>
