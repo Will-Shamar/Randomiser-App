@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".coinflipper.CoinFlipperActivity"
-    android:clipChildren="false">
+    >
 
     <ImageView
         android:layout_width="match_parent"
@@ -46,6 +46,7 @@
         />
 
     <ImageView
+
         android:id="@+id/coinimage"
         android:layout_width="200dp"
         android:layout_height="200dp"

@@ -187,7 +187,9 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
                 flipResult.setText(R.string.tails);
                 break;
             case"N":
-                flipResult.startAnimation(animFadeOut);
+                if(!flipResult.getText().toString().isEmpty()) {
+                    flipResult.startAnimation(animFadeOut);
+                }
                 break;
             default:
                 flipResult.setText(R.string.nice);
