@@ -180,19 +180,17 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         switch (result){
             case"H":
                 flipResult.startAnimation(animFadeIn);
-                flipResult.setText("HEADS!!");
+                flipResult.setText(R.string.heads);
                 break;
             case"T":
                 flipResult.startAnimation(animFadeIn);
-                flipResult.setText("TAILS!!");
+                flipResult.setText(R.string.tails);
                 break;
             case"N":
                 flipResult.startAnimation(animFadeOut);
-
-
                 break;
             default:
-                flipResult.setText("NICE!!");
+                flipResult.setText(R.string.nice);
                 Log.d("COIN_FLIPPER","case has gone wrong: " + result);
         }
 
