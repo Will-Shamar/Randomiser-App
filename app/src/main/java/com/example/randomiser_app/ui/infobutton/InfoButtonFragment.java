@@ -57,7 +57,30 @@ public class InfoButtonFragment extends DialogFragment {
                 ((TextView)dialog.findViewById(R.id.infoContent)).setText(String.format("%s%s%s%s", getString(R.string.info_button_main_content_p1), getString(R.string.info_button_main_content_p2), getString(R.string.info_button_main_content_p3), getString(R.string.info_button_main_content_p4)));
                 break;
             case"COIN":
-                // TODO: 11/04/2025 add text for 'dice roll' info page
+                ((TextView)dialog.findViewById(R.id.infoTitle)).setText(R.string.info_button_coin_flipper_title);
+                dialog.findViewById(R.id.infoContent).setPadding(10,0,10,0);
+                ((TextView)dialog.findViewById(R.id.infoContent)).setText(String.format("%s%s%s%s%s%s%s%s%s",
+                        getString(R.string.info_button_coin_flipper_content_p1),
+                        getString(R.string._1_info_button_coin_flipper_content_p2),
+                        getString(R.string.info_button_coin_flipper_content_p3),
+                        getString(R.string.info_button_coin_flipper_content_p4),
+                        getString(R.string.info_button_coin_flipper_content_p5),
+                        getString(R.string.info_button_line_break),
+                        getString(R.string.info_button_coin_flipper_content_p6),
+                        getString(R.string.info_button_coin_flipper_content_p7),
+                        getString(R.string.info_button_line_break)));
+                break;
+            case"CARDS":
+                dialog.findViewById(R.id.infoContent).setPadding(10,0,10,0);
+                ((TextView)dialog.findViewById(R.id.infoTitle)).setText(R.string.info_button_deck_shuffler_title);
+                ((TextView)dialog.findViewById(R.id.infoTitle)).setTextSize(45);
+                ((TextView)dialog.findViewById(R.id.infoContent)).setText(String.format("%s%s%s%s%s%s",
+                                getString(R.string.info_button_deck_shuffler_content_p1),
+                                getString(R.string.info_button_deck_shuffler_content_p2),
+                                getString(R.string.info_button_deck_shuffler_content_p3),
+                                getString(R.string.info_button_deck_shuffler_content_p4),
+                                getString(R.string.info_button_deck_shuffler_content_p5),
+                                getString(R.string.info_button_deck_shuffler_content_p6)));
                 break;
             case "DICE":
                 // TODO: 11/04/2025 add text for 'dice roll' info page
