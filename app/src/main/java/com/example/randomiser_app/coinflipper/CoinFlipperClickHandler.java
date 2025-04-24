@@ -41,30 +41,6 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
         TextView numberOfFlips = coinFlipperActivity.findViewById(R.id.numberOfFlips);
         long waitDuration = animateCoin(flipRandomizer());
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                curValue++;
-                numberOfFlips.setText(String.valueOf(curValue));
-                setEnabledButtons(true);
-                TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
-                HorizontalScrollView scrollView = coinFlipperActivity.findViewById(R.id.horizonalScrollView);
-                if (curSide == R.drawable.coinlogo) {
-                    historyList.append("H ");
-                    showTextResult("H");
-                } else {
-                    historyList.append("T ");
-                    showTextResult("T");
-                }
-                scrollView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
-                    }
-                });
-            }
-        }, waitDuration + 500);
     }
 
     public long animateCoin(boolean stayTheSame) {
@@ -91,7 +67,8 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         animation.setInterpolator(new LinearInterpolator());
 
         coinImage.startAnimation(animation);
-        setEnabledButtons(false);
+
+        setAnimationEndText(animation);
         showTextResult("N");
 
         return animation.getDuration() * (animation.getRepeatCount() + 1);
@@ -123,6 +100,50 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
         });
     }
 
+    private void setAnimationEndText(Animation animation){
+        CoinFlipperActivity coinFlipperActivity = (CoinFlipperActivity) context;
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                setEnabledButtons(false);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                setEnabledButtons(true);
+
+                TextView numberOfFlips = coinFlipperActivity.findViewById(R.id.numberOfFlips);
+
+                TextView historyList = coinFlipperActivity.findViewById(R.id.fliphistorylist);
+                HorizontalScrollView scrollView = coinFlipperActivity.findViewById(R.id.horizonalScrollView);
+                curValue++;
+                numberOfFlips.setText(String.valueOf(curValue));
+
+                if (curSide == R.drawable.coinlogo) {
+                    historyList.append("H ");
+                    showTextResult("H");
+                } else {
+                    historyList.append("T ");
+                    showTextResult("T");
+                }
+                scrollView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+
+    }
 
 
     public void onSkinsButtonClicked(View view) {
