@@ -166,6 +166,7 @@ public class CoinFlipperClickHandler extends Handler implements RecyclerViewInte
             popupWindow.dismiss();
             return true;
         });
+        // TODO: 25/04/2025 Add functionality to skins menu close button 
     }
     @Override
     public void onItemClick(int position) {
