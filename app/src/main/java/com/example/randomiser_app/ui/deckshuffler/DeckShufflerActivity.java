@@ -24,6 +24,7 @@ public class DeckShufflerActivity extends AppCompatActivity {
 
         ActivityDeckShufflerBinding binding = ActivityDeckShufflerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.setClickHandler(new DeckShufflerClickHandler(this));
 
         setUpToolbar();
     }
@@ -65,5 +66,7 @@ public class DeckShufflerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
